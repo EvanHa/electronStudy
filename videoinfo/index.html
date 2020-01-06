@@ -1,4 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
 </head>
 <body>
   <h1>Video Info</h1>
@@ -10,12 +15,23 @@
     <button type="submit">Get Info</button>
   </form>
 
+  <h1 id="result"></h1>
   <script>
+    const electron = require('electron');
+    const { ipcRenderer } = electron;
+
     document.querySelector('form').addEventListener('submit', (event)=>{
       event.preventDefault();
       //debugger
-      const file = document.querySelector('input').files[0];
-      console.log(file);
+      const { path } = document.querySelector('input').files[0];
+      console.log(path);
+      ipcRenderer.send('video:submit', path);
+    });
+
+    ipcRenderer.on('video:metadata', (event, duration) => {
+      console.log("test!!!");
+      document.querySelector('#result').innerHTML = `Video is ${duration} seconds`;
     });
   </script>
 </body>
+</html>
