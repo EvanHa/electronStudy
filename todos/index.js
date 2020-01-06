@@ -58,6 +58,8 @@ if (process.platform === 'darwin') {
   menuTemplate.unshift({});
 }
 
+// 'production'
+// 'development'
 if (process.env.NODE_ENV !== 'production') {
   menuTemplate.push({
     label: 'View',
