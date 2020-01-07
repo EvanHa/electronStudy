@@ -11,4 +11,6 @@ multiple os(windows, linux, macos) build support
   - menu bar 생성 및 컨트롤 
   - 단축키 
 
-
+3. tasky
+  - tray에 숨기기 
+  - 
