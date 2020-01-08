@@ -30,10 +30,11 @@ app.on('ready', () => {
     {
       mainWindow.hide();
     } else {
-      const yPosition = process.platform === 'darwin' ? y : (y-height);
-      console.log(yPosition);
+      const xPosition = process.platform === 'darwin' ? x - width / 2 : parseInt(x - (width/2));
+      const yPosition = process.platform === 'darwin' ? y : parseInt(y-height);
+      console.log(xPosition, yPosition);
       mainWindow.setBounds({
-        x:(x - (width/2)),
+        x:xPosition,
         y:yPosition,
         height,
         width
