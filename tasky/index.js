@@ -7,7 +7,7 @@ let tray;
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
-    height:500,
+    height:600,
     width:300,
     frame: false,
     resizable: false,
@@ -18,13 +18,26 @@ app.on('ready', () => {
   const iconName = process.platform === 'win32' ? 'windows-icon.png' : 'iconTemplate.png';
   const iconPath = path.join(__dirname, `./src/assets/${iconName}`);
   tray = new Tray(iconPath);
-  tray.on('click', ()=> {
+  tray.on('click', (event, bounds)=> {
+    console.log(bounds.x, bounds.y);
+    // Click event bounds
+    const { x, y } = bounds;
+
+    // Window height and width
+    const { height, width } = mainWindow.getBounds();
+
     if (mainWindow.isVisible())
     {
       mainWindow.hide();
     } else {
+      const yPosition = process.platform === 'darwin' ? y : (y-height);
+      mainWindow.setBounds({
+        x: (x - (width/2)),
+        y: yPosition,
+        height,
+        width
+      });
       mainWindow.show();
     }
-
   });
 });
