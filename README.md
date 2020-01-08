@@ -13,4 +13,5 @@ multiple os(windows, linux, macos) build support
 
 3. tasky
   - tray에 숨기기 
-  - 
+  - tray menu 추가 
+  - background 동작 
