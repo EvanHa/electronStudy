@@ -6,7 +6,31 @@
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --entry ./src/webview-preload.js --output-filename webview-preload.js"
+    "build": "webpack --entry ./src/webview-preload.js --output-filename webview-preload.js",
+    "build:win64": "build --win --x64"
+  },
+  "build": {
+    "productName": "mspark",
+    "appId": "com.mspark.app",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "directories": {
+      "output": "out/",
+      "app": "."
+    }
   },
   "repository": {
     "type": "git",
@@ -18,11 +42,14 @@
   "homepage": "https://github.com/EvanHa/study-electron#readme",
   "devDependencies": {
     "@medv/finder": "^1.1.2",
+    "electron": "^11.3.0",
+    "electron-builder": "^22.9.1",
+    "electron-packager": "^15.2.0",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "electron": "^9.3.1",
+    "electron-is-dev": "^1.2.0",
     "jquery": "^3.3.1",
     "puppeteer": "^7.1.0"
   }
