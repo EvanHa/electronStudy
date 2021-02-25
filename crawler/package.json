@@ -4,10 +4,11 @@
   "description": "ms park application",
   "main": "src/main.js",
   "scripts": {
+    "dev": "node src/js/instagram_follower.js",
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --entry ./src/webview-preload.js --output-filename webview-preload.js",
-    "build:win64": "build --win --x64"
+    "build:win64": "electron-builder build --win --x64"
   },
   "build": {
     "productName": "mspark",
@@ -49,6 +50,7 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "electron-is-dev": "^1.2.0",
     "jquery": "^3.3.1",
     "puppeteer": "^7.1.0"
