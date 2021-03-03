@@ -4,7 +4,7 @@
   "description": "ms park application",
   "main": "src/main.js",
   "scripts": {
-    "dev": "node src/js/instagram_follower.js",
+    "dev": "node src/js/instagram_crawling.js",
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --entry ./src/webview-preload.js --output-filename webview-preload.js",
@@ -50,9 +50,13 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
     "dotenv": "^8.2.0",
     "electron-is-dev": "^1.2.0",
+    "file-system": "^2.2.2",
     "jquery": "^3.3.1",
+    "jshint": "^2.12.0",
+    "json2csv": "^5.0.6",
     "puppeteer": "^7.1.0"
   }
 }
