@@ -8,8 +8,8 @@ const puppeteer = require('puppeteer');
         width: 1366,
         height: 768
     });
-    const naver_id = "frb843_evan";
-    const naver_pw = "!spdlqjAudghks19";
+    const naver_id = "네이버아이디";
+    const naver_pw = "네이버비번";
     await page.goto('https://nid.naver.com/nidlogin.login');
     await page.evaluate((id, pw) => {
         document.querySelector('#id').value = id;
